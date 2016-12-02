@@ -1,16 +1,18 @@
 // Get actions from server and inject it in the store
 import Server from 'rabbitsocketioclient';
 
+var throwAwayErrors = (err) => {console.log('Error Socket.io: ', err);};
+
 function createRabbitSocketIOMiddleware(config = {}) {
     return ({ dispatch, getState }) => {
         // Configure Server to get actions
         // and dispatch to store
         var sendActionToServer = Server({
             protocol: config.protocol || 'ws',
-            server: config.host || window.location.hostname,
+            server: config.host || 'localhost',
             port: config.port || 8001,
             onData: dispatch,
-            onError: (err) => console.error('Socket.io Error:', err)
+            onError: config.onError || throwAwayErrors
         });
         return (next) => {
             return (action) => {

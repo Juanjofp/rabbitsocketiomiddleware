@@ -9,7 +9,7 @@ function createRabbitSocketIOMiddleware(config = {}) {
         // and dispatch to store
         var sendActionToServer = Server({
             protocol: config.protocol || 'ws',
-            server: config.host || 'localhost',
+            hostname: config.hostname || 'localhost',
             port: config.port || 8001,
             onData: dispatch,
             onError: config.onError || throwAwayErrors

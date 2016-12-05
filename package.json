@@ -1,6 +1,6 @@
 {
   "name": "rabbitsocketiomiddleware",
-  "version": "1.0.8",
+  "version": "1.0.10",
   "description": "",
   "main": "build/main.js",
   "devDependencies": {
@@ -18,7 +18,7 @@
     "start-server": "cd src && babel-node main.js",
     "start": "cd src && nodemon main.js --exec babel-node"
   },
-  "author": "juanjofp",
+  "author": "juanjofp,francescorivola",
   "repository": {
     "type": "git",
     "url": "https://github.com/Juanjofp/rabbitsocketiomiddleware.git"
